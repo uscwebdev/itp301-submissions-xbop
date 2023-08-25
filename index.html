@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Imani Musembi | Student Page</title>
+        <style>
+            #main {
+                width: 900px;
+                margin-left: auto;
+			    margin-right: auto;
+            }
+            hr {
+                /* width: 800px; */
+                text-align: center;
+            }
+            #rightone {
+                float: right;
+                /* margin: 50px; */
+                margin-right: 125px;
+                margin-top: -10px;
+            }
+            #righttwo {
+                float: right;
+                /* margin: 50px; */
+                margin-right: 225px;
+            }
+            .left {
+                /* margin-left: 55px; */
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <h1>Imani Musembi</h1>
+            <p><a href="mailto:musembi@usc.edu">musembi@usc.edu</a></p>
+            <div class="rightone">
+                <button id="btn-click" >Favorite Color</button>
+                <button id="btn-click-reset" >Reset</button>
+            </div>
+            <div id="righttwo">
+                <p>Labs:</p>
+                <ul>
+                    <li><a href="index.html">Lab 1: Student Page</a></li>
+                </ul>
+            </div>
+            <div class="left">
+                <p>Assignments:</p>
+            </div>
+        </div>
+        <script>
+            document.querySelector('#btn-click').onclick = function(){
+                document.querySelector('body').style.backgroundColor = '#800080';
+            }
+            document.querySelector('#btn-click-reset').onclick = function(){
+                document.querySelector('body').style.backgroundColor = '#FFF';
+            }
+        </script>
+    </body>
+</html>
