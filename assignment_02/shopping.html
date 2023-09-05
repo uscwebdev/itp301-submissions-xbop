@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Imani Musembi | Shopping Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+
+	<style>
+
+		#header {
+			/* background-image: url("img/coraline_hero_v2.jpg"); */
+			height: 175px;
+			background-position: center;
+            background-color: darkred;
+			background-size: cover;
+
+			color: #FFF;
+			font-size: 1.5em;
+			text-align: center;
+
+			line-height: 150px;
+			/*padding-top: 240px;*/
+
+			text-shadow: 0px 0px 10px #000;
+		}
+
+        h2 {
+            color: black;
+            margin-left: 10px;
+            /* color: #900; */
+        }
+
+        h1 {
+            margin: 0px;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            /* background-color: #BDB76B; */
+        }
+
+        html {
+            height: 100%; /* Set HTML height to 100% */
+        }
+
+        #footer {
+            font-size: 0.8em;
+            text-align: center;
+            padding: 0px;
+            margin-top: 100px;
+            background-color: #000;
+            color: #FFF;
+            height: 50px;
+            line-height: 50px;
+        }
+
+		#main {
+			/* width: 700px; */
+            /* background-color: #556B2F; */
+			margin-left: auto;
+			margin-right: auto;
+
+            flex-grow: 1;
+
+			/* border: 10px solid #000; */
+
+			/* padding: 15px; */
+            padding: 15px 0px;
+		}
+
+        .items {
+            display: flex; /* Use flex to arrange items in a row */
+            justify-content: space-around; /* Distribute items evenly */
+        }
+
+        .item-box {
+            cursor: pointer;
+            width: 150px;
+            height: 200px; /* Adjust the height to make room for the text */
+            /* overflow: hidden; */
+            text-align: center; /* Center text horizontally */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .item-box img {
+            height: 200px;
+            width: 100%;
+            margin: 0px;
+        }
+
+        .caption {
+            text-align: center;
+            font-size: 1.2em;
+            /* font-weight: bold; */
+            color: black; /* Change the text color to black */
+            margin: 5px;
+        }
+
+        .subheading {
+            margin: 5px;
+            /* font-size: small; */
+        }
+
+        #text {
+            font-weight: bold;
+            float: right;
+            margin-top: 30px;
+            margin-right: 75px;
+        }
+
+	</style>
+	
+</head>
+<body>
+
+	<div id="header">
+		<h1>My Cart</h1>
+	</div>
+	<!-- #header -->
+
+    <div id="main">
+        <div class='items'>
+            <div class='item-box' id="pizza">
+                <img src="img/istockphoto-1042948900-170667a.jpg" alt="pizza">
+                <p class="caption">Large Pepperoni Pizza</p>
+                <p class="subheading">$15</p>
+                <!-- product price ^ -->
+                <!-- <span id="pizza-value">$15</span> -->
+            </div>
+            <div class='item-box' id="breadsticks">
+                <img src="img/istockphoto-1075293248-170667a.jpg" alt="breadsticks">
+                <p class="caption">Breadsticks</p>
+                <p class="subheading">$5</p>
+            </div>
+            <div class='item-box' id="marinara">
+                <img src="img/istockphoto-1054579050-612x612.jpg" alt="marinara">
+                <p class="caption">Marinara Sauce</p>
+                <p class="subheading">$2</p>
+            </div>
+        </div>
+        <p id="text">
+            Cart Subtotal: $<span id="subtotal">0</span>
+            <!-- innerHTML of #subtotal is what we'll update based on user product selection -->
+        </p>
+    </div>
+
+	<div id="footer">
+		&copy; 2018 University of Southern California
+	</div>
+	<!-- #footer -->
+
+    <!-- Workflow:
+        1. User clicks on a product (.onclick event).
+        2. Save current count in a variable 'dollars'.
+        3. Convert 'dollars' to a numeric value using parseInt().
+            By default, all values from .innerHTML are string values.
+        4. Increment 'dollars' by product price.
+        5. Display the new value to users in the "subtotal" section. -->
+
+
+    <script>
+        document.querySelector('#pizza').onclick = function(){
+            var dollars = document.querySelector("#subtotal").innerHTML;
+            dollars = parseInt(dollars);
+            var converted = 15 + dollars;
+            document.querySelector("#subtotal").innerHTML = converted;
+            console.log(converted);
+        };	
+
+        document.querySelector('#breadsticks').onclick = function(){
+            var dollars = document.querySelector("#subtotal").innerHTML;
+            dollars = parseInt(dollars);
+            var converted = 5 + dollars;
+            document.querySelector("#subtotal").innerHTML = converted;
+            console.log(converted);
+        };
+
+        document.querySelector('#marinara').onclick = function(){
+            var dollars = document.querySelector("#subtotal").innerHTML;
+            dollars = parseInt(dollars);
+            var converted = 2 + dollars;
+            document.querySelector("#subtotal").innerHTML = converted;
+            console.log(converted);
+        };
+		
+	</script>
+
+</body>
+</html>
