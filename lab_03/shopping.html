@@ -4,6 +4,7 @@
 
 	<title>Imani Musembi | Shopping Cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
 
 	<style>
@@ -14,11 +15,12 @@
 			background-position: center;
             background-color: darkred;
 			background-size: cover;
+            padding-top: 75px;
 
 			color: #FFF;
 			font-size: 1.5em;
 			text-align: center;
-
+            
 			line-height: 150px;
 			/*padding-top: 240px;*/
 
@@ -78,6 +80,7 @@
 
         .item-box {
             cursor: pointer;
+            margin-top: 50px;
             width: 150px;
             height: 200px; /* Adjust the height to make room for the text */
             /* overflow: hidden; */
@@ -110,12 +113,19 @@
             /* font-size: small; */
         }
 
-        #text {
+        #right-text {
             font-weight: bold;
             float: right;
-            margin-top: 30px;
+            margin-top: 50px;
             margin-right: 75px;
         }
+
+        #moola-btn {
+            margin: 0px;
+            background-color:dimgrey;
+            border-color: dimgrey;
+        }
+
 
 	</style>
 	
@@ -147,10 +157,34 @@
                 <p class="subheading">$2</p>
             </div>
         </div>
-        <p id="text">
+        <p id="right-text">
             Cart Subtotal: $<span id="subtotal">0</span>
             <!-- innerHTML of #subtotal is what we'll update based on user product selection -->
         </p>
+
+        <div id="moola-section" class="container mt-4">
+
+            <div class="row">
+                <p id="left-text">
+                    Remaining Funds: $<span id="funds">0</span>
+                </p>
+            </div> <!-- .row -->
+    
+            <div class="row mt-3">
+                <div class="col-4 col-md-3 col-lg-2">
+                    <div class="input-group">
+                        
+                        <div class="input-group-append"><div class="input-group-text">$</div></div>
+
+                        <input type="text" id="money-input" class="form-control">
+
+                    </div> <!-- .input-group -->
+                </div> <!-- .col -->
+                
+                <button id="moola-btn" class="btn btn-primary">Add Moola</button>
+            </div> <!-- .row -->
+        </div> <!-- #moola-section -->
+
     </div>
 
 	<div id="footer">
@@ -174,7 +208,7 @@
             var converted = 15 + dollars;
             document.querySelector("#subtotal").innerHTML = converted;
             console.log(converted);
-        };
+        };	
 
         document.querySelector('#breadsticks').onclick = function(){
             var dollars = document.querySelector("#subtotal").innerHTML;
@@ -190,6 +224,12 @@
             var converted = 2 + dollars;
             document.querySelector("#subtotal").innerHTML = converted;
             console.log(converted);
+        };
+
+        document.querySelector('#moola-btn').onclick = function(){
+            var fundTotal = document.querySelector("#funds").innerHTML;
+            var moneyInput = document.querySelector("#money-input");
+            document.querySelector('#funds > span').innerHTML = moneyInput + fundTotal;
         };
 		
 	</script>
