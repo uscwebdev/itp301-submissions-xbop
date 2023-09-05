@@ -202,11 +202,23 @@
 
 
     <script>
+
         document.querySelector('#pizza').onclick = function(){
             var dollars = document.querySelector("#subtotal").innerHTML;
             dollars = parseInt(dollars);
             var converted = 15 + dollars;
-            document.querySelector("#subtotal").innerHTML = converted;
+            // document.querySelector('#funds').innerHTML = parseInt(fundTotal) - 15;
+            
+            var fundTotal = document.querySelector("#funds").innerHTML;
+            fundTotal = parseInt(fundTotal);
+            
+            if (fundTotal >= 15) {
+                document.querySelector('#funds').innerHTML = fundTotal - 15;
+                document.querySelector("#subtotal").innerHTML = converted;
+            } else {
+                alert('Insufficient Funds!');
+            }
+            
             console.log(converted);
         };	
 
@@ -214,7 +226,17 @@
             var dollars = document.querySelector("#subtotal").innerHTML;
             dollars = parseInt(dollars);
             var converted = 5 + dollars;
-            document.querySelector("#subtotal").innerHTML = converted;
+            // document.querySelector('#funds').innerHTML = parseInt(fundTotal) - parseInt(5);
+            var fundTotal = document.querySelector("#funds").innerHTML;
+            fundTotal = parseInt(fundTotal);
+            
+            if (fundTotal >= 5) {
+                document.querySelector('#funds').innerHTML = fundTotal - 5;
+                document.querySelector("#subtotal").innerHTML = converted;
+            } else {
+                alert('Insufficient Funds!');
+            }
+            
             console.log(converted);
         };
 
@@ -222,14 +244,24 @@
             var dollars = document.querySelector("#subtotal").innerHTML;
             dollars = parseInt(dollars);
             var converted = 2 + dollars;
-            document.querySelector("#subtotal").innerHTML = converted;
+            // document.querySelector('#funds').innerHTML = parseInt(fundTotal) - 2;
+            var fundTotal = document.querySelector("#funds").innerHTML;
+            fundTotal = parseInt(fundTotal);
+            if (fundTotal >= 2) {
+                document.querySelector('#funds').innerHTML = fundTotal - 2;
+                document.querySelector("#subtotal").innerHTML = converted;
+            } else {
+                alert('Insufficient Funds!');
+            }
             console.log(converted);
         };
 
         document.querySelector('#moola-btn').onclick = function(){
+            var moneyInput = document.querySelector("#money-input").value;
+            moneyInput = parseInt(moneyInput);
             var fundTotal = document.querySelector("#funds").innerHTML;
-            var moneyInput = document.querySelector("#money-input");
-            document.querySelector('#funds > span').innerHTML = moneyInput + fundTotal;
+            fundTotal = parseInt(fundTotal);
+            document.querySelector('#funds').innerHTML = moneyInput + fundTotal;
         };
 		
 	</script>
