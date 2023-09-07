@@ -167,6 +167,7 @@
             <div class="row">
                 <p id="left-text">
                     Remaining Funds: $<span id="funds">0</span>
+            <!-- innerHTML of #funds is what we'll update based on user-inputted amount -->
                 </p>
             </div> <!-- .row -->
     
@@ -177,6 +178,8 @@
                         <div class="input-group-append"><div class="input-group-text">$</div></div>
 
                         <input type="text" id="money-input" class="form-control">
+
+                        <!-- ^ user-inputted form response -->
 
                     </div> <!-- .input-group -->
                 </div> <!-- .col -->
@@ -262,6 +265,8 @@
             var fundTotal = document.querySelector("#funds").innerHTML;
             fundTotal = parseInt(fundTotal);
             document.querySelector('#funds').innerHTML = moneyInput + fundTotal;
+            // Clear the input field.
+			document.querySelector('#money-input').value = '';
         };
 		
 	</script>
