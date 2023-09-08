@@ -215,6 +215,8 @@
             var fundTotal = document.querySelector("#funds").innerHTML;
             fundTotal = parseInt(fundTotal);
             
+            // if total funds is less than $15, subtotal remains the same and alert is triggered; if enough funds then the fund total decreases by $15
+
             if (fundTotal >= 15) {
                 document.querySelector('#funds').innerHTML = fundTotal - 15;
                 document.querySelector("#subtotal").innerHTML = converted;
@@ -233,6 +235,8 @@
             var fundTotal = document.querySelector("#funds").innerHTML;
             fundTotal = parseInt(fundTotal);
             
+            // if total funds is less than $5, subtotal remains the same and alert is triggered; if enough funds then the fund total decreases by $5
+
             if (fundTotal >= 5) {
                 document.querySelector('#funds').innerHTML = fundTotal - 5;
                 document.querySelector("#subtotal").innerHTML = converted;
@@ -250,6 +254,9 @@
             // document.querySelector('#funds').innerHTML = parseInt(fundTotal) - 2;
             var fundTotal = document.querySelector("#funds").innerHTML;
             fundTotal = parseInt(fundTotal);
+            
+            // if total funds is less than $2, subtotal remains the same and alert is triggered; if enough funds then the fund total decreases by $2
+            
             if (fundTotal >= 2) {
                 document.querySelector('#funds').innerHTML = fundTotal - 2;
                 document.querySelector("#subtotal").innerHTML = converted;
@@ -260,12 +267,15 @@
         };
 
         document.querySelector('#moola-btn').onclick = function(){
+            // Store user-inputted amount and convert to integer
             var moneyInput = document.querySelector("#money-input").value;
             moneyInput = parseInt(moneyInput);
+            // Store fund total and convert to integer
             var fundTotal = document.querySelector("#funds").innerHTML;
             fundTotal = parseInt(fundTotal);
+            // Add input to fund total to get a new fund total
             document.querySelector('#funds').innerHTML = moneyInput + fundTotal;
-            // Clear the input field.
+            // Clear the input field
 			document.querySelector('#money-input').value = '';
         };
 		
