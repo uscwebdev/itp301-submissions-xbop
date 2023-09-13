@@ -68,7 +68,7 @@
 		// number buttons --> code for each button is basically the same besides the number that would be inputted
 		document.querySelector('#one-btn').onclick = function(){
 			// store display value in a local variable (so you don't overwrite num1)
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			// if value = 0 then replace it with '1', if there is a non-zero value already in the display, just concatenate '1'
 			if (disp == '0') {
 				document.querySelector('#display').value = '1';
@@ -78,7 +78,7 @@
 		}
 
 		document.querySelector('#two-btn').onclick = function(){
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			if (disp == '0') {
 				document.querySelector('#display').value = '2';
 			} else {
@@ -87,7 +87,7 @@
 		}
 
 		document.querySelector('#three-btn').onclick = function(){
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			if (disp == '0') {
 				document.querySelector('#display').value = '3';
 			} else {
@@ -96,7 +96,7 @@
 		}
 
 		document.querySelector('#four-btn').onclick = function(){
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			if (disp == '0') {
 				document.querySelector('#display').value = '4';
 			} else {
@@ -105,7 +105,7 @@
 		}
 
 		document.querySelector('#five-btn').onclick = function(){
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			if (disp == '0') {
 				document.querySelector('#display').value = '5';
 			} else {
@@ -114,7 +114,7 @@
 		}
 
 		document.querySelector('#six-btn').onclick = function(){
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			if (disp == '0') {
 				document.querySelector('#display').value = '6';
 			} else {
@@ -123,7 +123,7 @@
 		}
 
 		document.querySelector('#seven-btn').onclick = function(){
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			if (disp == '0') {
 				document.querySelector('#display').value = '7';
 			} else {
@@ -132,7 +132,7 @@
 		}
 
 		document.querySelector('#eight-btn').onclick = function(){
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			if (disp == '0') {
 				document.querySelector('#display').value = '8';
 			} else {
@@ -141,7 +141,7 @@
 		}
 
 		document.querySelector('#nine-btn').onclick = function(){
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			if (disp == '0') {
 				document.querySelector('#display').value = '9';
 			} else {
@@ -150,7 +150,7 @@
 		}
 
 		document.querySelector('#zero-btn').onclick = function(){
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			if (disp == '0') {
 				document.querySelector('#display').value = '0';
 			} else {
@@ -159,7 +159,7 @@
 		}
 
 		document.querySelector('#dot-btn').onclick = function(){
-			disp = document.querySelector('#display').value;
+			var disp = document.querySelector('#display').value;
 			// check to see if decimal point has already been added to value
 			if (!disp.includes('.')) {
 				document.querySelector('#display').value = disp + '.';

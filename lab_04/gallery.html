@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Imani Musembi | JS Photo Gallery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <style>
+            body {
+                background-color:green;
+            }
+            h1 {
+                text-align: center;
+                color:#000;
+            }
+            #main {
+                /* width: 1000px; */
+                /* padding-left: 50px; */
+                /* padding-right: 50px; */
+                margin-left: auto;
+			    margin-right: auto;
+            }
+            .color-box {
+                cursor: pointer;
+                /* overflow: auto; */
+                /* max-width: 100px; */
+            }
+
+            .color-box{
+                display: block;
+                width: 150px;
+                height: 150px;
+                overflow: hidden;
+                border-radius: 10px;
+                padding: 0px;
+                
+                /* padding-top: 100%; */
+                  /* initial ratio of 1:1*/
+            }
+
+            .color-box > img {
+                width: 100%;
+                margin: 0px;
+                height: 100%;
+                margin: 0px;
+            }
+
+            #big {
+                border: 1px solid #000;
+                max-height: 300px;
+                margin: auto;
+                display: block;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <h1>TMNT Generations (1990 - 2023)</h1>
+            <div id="color-boxes" class="container mt-4">
+                <div id="color-wrapper" class="row">
+                    <div class="color-box text-center border border-dark col-4 col-md mx-1 my-1" id="gen-1">
+                        <img src="img/MV5BMTg5NDQxOTc4NF5BMl5BanBnXkFtZTgwNDE0Njk5MTE@._V1_.jpg" alt="1990 Generation">
+                    </div>
+                    <div class="color-box text-center border border-dark col-4 col-md mx-1 my-1" id="gen-2">
+                        <img src="img/p9453814_i_v9_ab.jpg" alt="2012 Generation">
+                    </div>
+                    <div class="color-box text-center border border-dark col-4 col-md mx-1 my-1" id="gen-3">
+                        <img src="img/maxresdefault-6.jpg" alt="2016 Generation">
+                    </div>
+                    <div class="color-box text-center border border-dark col-4 col-md mx-1 my-1" id="gen-4">
+                        <img src="img/AAAAQYH2MbACY3Ji--C9QkPgfvIw96-A5qCVfTLT2WIrkU79MlPofASjteiFEaJ_jpUf8Gd_Vl27WecNKWTZpG_dGlJitXX8xCUFFtstVCqy9DQeNMn3crFOhwa9otOKs9jKexsFG0Eu6Lqx4oVEb_Xqekmi.jpg" alt="2018 Generation">
+                    </div>
+                    <div class="color-box text-center border border-dark col-4 col-md mx-1 my-1" id="gen-5">
+                        <img src="img/EWKA_Ninja_Turtles_Mutant_Mayhem2.jpg" alt="2023 Generation">
+                    </div>
+                </div> <!-- #color-wrapper -->
+            </div> <!-- #color-boxes -->
+            <div id="main-image-section" class="container mt-4">
+                <img id="big" src="img/MV5BMTg5NDQxOTc4NF5BMl5BanBnXkFtZTgwNDE0Njk5MTE@._V1_.jpg" alt="1990 Generation">
+            </div> <!-- #main-image-section -->
+        </div>
+        <script>
+
+            var thumbnailArray = [];
+
+            var thumbnails = document.querySelectorAll('.color-box');
+
+            console.log(thumbnails);
+
+            for (var i = 0; i < thumbnails.length; i++) {
+                thumbnailArray.push(this.children);
+            }
+
+            for (var i = 0; i < thumbnails.length; i++) {
+                console.log(i);
+                thumbnails[i].onclick = function(){
+                    console.log('box clicked');
+                    console.log( this );
+                    // var image = 
+                    document.querySelector('#big').src = thumbnailArray[i];
+                    // document.querySelector('#big').alt = thumbnailArray[i].alt;
+                    console.log(document.querySelector('#big').alt);
+                    // var color = getComputedStyle( this ).getPropertyValue('background-color');
+                    // document.querySelector('body').style.backgroundColor = color;
+                }
+		    }
+
+            console.log(thumbnailArray);
+
+            // console.log(thumbnailArray);
+
+            // document.querySelector("#gen-1").onclick = function(){
+			//     document.querySelector('#big').src = "img/MV5BMTg5NDQxOTc4NF5BMl5BanBnXkFtZTgwNDE0Njk5MTE@._V1_.jpg";
+            //     document.querySelector('#big').alt = "1990 Generation";
+            //     console.log(document.querySelector('#big').alt);
+		    // }
+            // document.querySelector("#gen-2").onclick = function(){
+			//     document.querySelector('#big').src = "img/p9453814_i_v9_ab.jpg";
+            //     document.querySelector('#big').alt = "2012 Generation";
+            //     console.log(document.querySelector('#big').alt);
+		    // }
+            // document.querySelector("#gen-3").onclick = function(){
+			//     document.querySelector('#big').src = "img/maxresdefault-6.jpg";
+            //     document.querySelector('#big').alt = "2016 Generation";
+            //     console.log(document.querySelector('#big').alt);
+		    // }
+            // document.querySelector("#gen-4").onclick = function(){
+			//     document.querySelector('#big').src = "img/AAAAQYH2MbACY3Ji--C9QkPgfvIw96-A5qCVfTLT2WIrkU79MlPofASjteiFEaJ_jpUf8Gd_Vl27WecNKWTZpG_dGlJitXX8xCUFFtstVCqy9DQeNMn3crFOhwa9otOKs9jKexsFG0Eu6Lqx4oVEb_Xqekmi.jpg";
+            //     document.querySelector('#big').alt = "2018 Generation";
+            //     console.log(document.querySelector('#big').alt);
+		    // }
+            // document.querySelector("#gen-5").onclick = function(){
+			//     document.querySelector('#big').src = "img/EWKA_Ninja_Turtles_Mutant_Mayhem2.jpg";
+            //     document.querySelector('#big').alt = "2023 Generation";
+            //     console.log(document.querySelector('#big').alt);
+		    // }
+        </script>
+    </body>
+</html>
