@@ -51,6 +51,11 @@
                 display: block;
                 border-radius: 10px;
             }
+
+            #caption {
+                text-align: center;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
@@ -77,37 +82,35 @@
             </div> <!-- #color-boxes -->
             <div id="main-image-section" class="container mt-4">
                 <img id="big" src="img/MV5BMTg5NDQxOTc4NF5BMl5BanBnXkFtZTgwNDE0Njk5MTE@._V1_.jpg" alt="1990 Generation">
+                <div id="caption">1990 Generation</div>
             </div> <!-- #main-image-section -->
         </div>
         <script>
 
-            var thumbnailArray = [];
-
+            // Create a variable that will store an array of thumbnail images.
             var thumbnails = document.querySelectorAll('.color-box');
+            var caption = document.getElementById('caption');
 
-            console.log(thumbnails);
-
+            // Loop through that array to bind event handlers for each thumbnail image.
             for (var i = 0; i < thumbnails.length; i++) {
-                thumbnailArray.push(this.children);
+                thumbnails[i].onclick = function(){
+                    // obtain img src from selected img and store in newSrc variable
+                    var newSrc = this.querySelector('img').src;
+                    // obtain img alt from selected img and store in newAlt variable
+                    var newAlt = this.querySelector('img').alt;
+                    // call changeMainImg function using the new variables as parameters
+                    changeMainImg( newSrc , newAlt );
+                }
             }
 
-            for (var i = 0; i < thumbnails.length; i++) {
-                console.log(i);
-                thumbnails[i].onclick = function(){
-                    console.log('box clicked');
-                    console.log( this );
-                    // var image = 
-                    document.querySelector('#big').src = thumbnailArray[i];
-                    // document.querySelector('#big').alt = thumbnailArray[i].alt;
-                    console.log(document.querySelector('#big').alt);
-                    // var color = getComputedStyle( this ).getPropertyValue('background-color');
-                    // document.querySelector('body').style.backgroundColor = color;
-                }
-		    }
-
-            console.log(thumbnailArray);
-
-            // console.log(thumbnailArray);
+            var changeMainImg = function(newSrc, newAlt){
+                // Update main image to the clicked thumbnail image.
+                document.querySelector('#big').src = newSrc;
+                // Update main image alternative text to thumbnail’s alternative (alt) text.
+                document.querySelector('#big').alt = newAlt;
+                // Update the caption for the main image to the thumbnail’s alternative (alt) text.
+                caption.innerHTML = newAlt;
+            }
 
             // document.querySelector("#gen-1").onclick = function(){
 			//     document.querySelector('#big').src = "img/MV5BMTg5NDQxOTc4NF5BMl5BanBnXkFtZTgwNDE0Njk5MTE@._V1_.jpg";
