@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Imani Musembi | Liar’s Dice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+	<style>
+
+        h2 {
+            color: black;
+            padding: 0px;
+            margin-top: 50px;
+            /* color: #900; */
+        }
+
+        h1 {
+            margin-left: auto;
+			margin-right: auto;
+        }
+
+        body {
+            padding: 15px;
+        }
+
+		#main {
+			/* width: 700px; */
+            /* background-color: #556B2F; */
+			margin-left: auto;
+			margin-right: auto;
+
+            /* flex-grow: 1; */
+
+			/* border: 10px solid #000; */
+
+			/* padding: 15px; */
+            padding: 15px;
+		}
+
+        .dice {
+            display: flex; /* Use flex to arrange items in a row */
+            justify-content: space-around; /* Distribute items evenly */
+        }
+
+        .dice-box {
+            /* cursor: pointer; */
+            margin-top: 50px;
+            width: 150px;
+            height: 200px; /* Adjust the height to make room for the text */
+            /* overflow: hidden; */
+            text-align: center; /* Center text horizontally */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dice-box img {
+            height: 100px;
+            width: 100px;
+        }
+
+        #guess-btn {
+            background-color:dodgerblue;
+        }
+
+
+	</style>
+	
+</head>
+<body>
+
+    <h1>Liar's Dice</h1>
+	<!-- #header -->
+
+    <div id="main">
+            <div class="row mt-3">
+                <p>Your Guess:</p>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <div class="input-group">
+                        <!-- Input field for user input -->
+                        <input type="text" id="guess-input" class="form-control">
+
+                        <!-- ^ user-inputted form response -->
+
+                    </div> <!-- .input-group -->
+                </div> <!-- .col -->
+                <!-- Button for user submission -->
+                <button id="guess-btn" class="btn btn-primary">Test Your Luck</button>
+            </div> <!-- .row -->
+            <!-- #guess-section -->
+
+        <h2>
+            Results:
+            <!-- Element to display messages -->
+            <span id="results"></span>
+        </h2>
+
+        <div class='dice'>
+            <div class='dice-box' id="dice1">
+                <img src="dice_images/1.png" alt="Dice One">
+            </div>
+            <div class='dice-box' id="dice2">
+                <img src="dice_images/1.png" alt="Dice Two">
+            </div>
+            <div class='dice-box' id="dice3">
+                <img src="dice_images/1.png" alt="Dice Three">
+            </div>
+            <div class='dice-box' id="dice4">
+                <img src="dice_images/1.png" alt="Dice Four">
+            </div>
+            <div class='dice-box' id="dice5">
+                <img src="dice_images/1.png" alt="Dice Five">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Workflow:
+        1. User types guess and submits (.onclick event).
+        2. Create an empty array numbers (or similar) to store random numbers (dice values).
+        3. Loop through numbers array and populate it with five (5) random integers.
+            Use Math.floor( Math.random() * 6 + 1 ) to generate a random integer between 1 and 6.
+        4. Create images array (or similar) that stores five (5) dice images from the DOM.
+            Hint: use querySelectorAll()
+        5. Loop through images array and set each image to the one that shows corresponding value stored in numbers array .
+            Hint: note how image names correspond to numbers displayed by each dice. I.e. for a die with number 3 the image name is 3.png, which is “3” concatenated with “.png”.
+        6. If users guessed at least one (1) value correctly, display a success message in green.
+            Otherwise, display an error / failure message in red.
+    -->
+
+
+    <script>
+
+        // create a global variable to see if user guessed correctly; default it to "false"
+        var check = false;
+
+        // Create images array (or similar) that stores five (5) dice images from the DOM.
+        var images = document.querySelectorAll('.dice-box');
+
+        document.querySelector('#guess-btn').onclick = function(){
+            // Create an empty array numbers (or similar) to store random numbers (dice values).
+            var numbers = [];
+
+            // Loop through numbers array and populate it with five (5) random integers.
+            for (var i = 0; i < 5; i++) {
+                // store a number between 1 (inclusive) and 7 (exclusive) in a local variable
+                var num = Math.floor( Math.random() * 6 + 1 );
+                // append number to numbers array
+                numbers.push(num);
+                // obtain user-inputted guess and store in a local variable
+                var guess = document.querySelector("#guess-input").value;
+                // convert string guess into an integer and compare it to random number to see if user guessed correctly
+                if (parseInt(guess) === num) {
+                    // change global "check" variable to true if guess matches random number
+                    check = true;
+                }
+                console.log(numbers);
+            }
+
+            // Clear the input field
+			// document.querySelector('#guess-input').value = '';
+
+            // Loop through images array and set each image to the one that shows corresponding value stored in numbers array .
+            for (var i = 0; i < 5; i++) {
+                // create a local variable by concatenating "dice_images/" with each element in the numbers array + ".png"
+                var img = "dice_images/" + numbers[i]+ ".png";
+                console.log(img);
+                // create another local variable by concatenating "#dice" + (index+1)
+                var change = "#dice" + (i+1);
+                // use "change" variable to obtain the desired dice image and replace it with the image stored in the "img" variable
+                document.querySelector(change + ' img').src = img;
+            }
+
+            // call isCorrectGuess function using the global variable "check" as the parameter
+            isCorrectGuess(check);
+
+            // reset "check" to false for next runthrough
+            check = false;
+        };
+
+		function isCorrectGuess(check){
+            // if "check" parameter is true, updated the innerHTML of #results to indicate a correct guess and update style of text color to make it green
+			if (check === true) {
+				document.querySelector("#results").innerHTML = "You guessed it!";
+                document.querySelector("#results").style.color = "green";
+            // if "check" parameter is false, updated the innerHTML of #results to indicate an incorrect guess and update style of text color to make it red
+			} else {
+				document.querySelector("#results").innerHTML = "Try again.";
+                document.querySelector("#results").style.color = "red";
+			}
+		}
+		
+	</script>
+
+</body>
+</html>
