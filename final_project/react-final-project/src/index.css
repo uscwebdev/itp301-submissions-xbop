@@ -1,0 +1,300 @@
+/* index.css */
+
+/* General styles */
+
+#big {
+  font-size: xx-large;
+  /* background-image: url('https://www.dance-enthusiast.com/images/features_large/Screen_Shot_2021-07-15_at_9.14.41_AM.png');
+  height: 200px;
+  background-size: cover; */
+  /* margin-right: 0px; */
+  /* background-size: cover; */
+  /* color: blueviolet; */
+  /* padding-top: 60px; */
+  /* margin-left: 0px; */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffd700;
+  margin: 0;
+  padding: 0;
+}
+
+#info-img {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+#paragraph {
+  text-align: center;
+}
+
+/* Header styles */
+.header {
+  background-color: #001f3f; /* Deep blue color */
+  color: #fff; /* White text */
+  padding: 20px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+nav ul li {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+/* Shared content styles */
+.content {
+  padding: 20px;
+}
+
+/* Styles specific to Cultural Reflections */
+.cultural-reflections {
+  /* background-color: #fff; White background */
+  color: #000; /* Black text */
+  border-bottom: 2px solid #ffd700; /* Golden yellow border */
+}
+
+/* Styles specific to Jazz Today */
+.jazz-today {
+  /* Jazz Today specific styles */
+}
+
+/* Additional shared styles */
+/* ... */
+
+.timeline {
+  margin-bottom: 30px;
+}
+
+.timeline h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+/* CSS for Timeline and Information Boxes */
+
+/* CSS for Timeline and Information Boxes */
+
+.timeline-item {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Custom CSS */
+.label-spacing {
+  margin-right: 10px; /* Adjust this value to change the spacing */
+}
+
+.event-details {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  max-width: 100%;
+}
+
+.event-details-content {
+  text-align: center;
+}
+
+.event-details .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #333;
+}
+
+.information-box {
+  display: none;
+  position: absolute;
+  top: 30px; /* Adjust this value to position the box */
+  left: 120px; /* Adjust this value to position the box */
+  width: 500px;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 1; /* Set a higher z-index to appear on top */
+}
+
+.timeline-item:hover .information-box {
+  display: block;
+}
+
+.timeline-year {
+  font-weight: bold;
+  margin-right: 20px;
+  width: 80px;
+}
+
+.timeline-event {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* index.css */
+
+/* Other styles remain unchanged */
+
+/* CSS for CulturalReflections */
+.interactive-elements {
+  margin-bottom: 30px;
+}
+
+.interactive-elements form {
+  display: flex;
+  flex-direction: column;
+}
+
+.interactive-elements form p {
+  font-weight: bold;
+}
+
+.interactive-elements form input[type='radio'] {
+  margin: 5px 0;
+}
+
+.interactive-elements form button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.interactive-elements form button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional CSS styles for discussion and user comments */
+/* ... */
+
+/* CSS for JazzToday */
+
+.header {
+  background-color: #001f3f;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.introduction {
+  padding: 20px;
+}
+
+.featured-content {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.featured-item {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.featured-item img {
+  max-width: 200px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  height: auto;
+}
+
+.search-feature {
+  padding: 20px;
+}
+
+.search-feature input[type='text'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#appropriation-img {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+#appropriation-img-container {
+  text-align: center;
+}
+
+footer {
+  background-color: blueviolet;
+  text-align: center;
+  color: white;
+  display: inline-block;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  animation: scrollLeft 15s linear infinite; /* Adjust the animation duration and timing function */
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(100%); /* Starts off-screen from the right */
+  }
+  to {
+    transform: translateX(-100%); /* Scrolls to the left */
+  }
+}
+
+/* Additional CSS styles as needed */
+
+/* CSS for Highlighting Active Title */
+#nav-text {
+  font-size: larger;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
